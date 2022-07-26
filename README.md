@@ -15,6 +15,8 @@ By doing so, it's basically as if we emulate a minimalist Android environment in
 
 ## Disclaimer
 
+The port has been tested with v.1.7.2b. With different versions, mod may need adjustments to be applied.
+
 The game is bundled with a mod made by CatoTheYounger that simplifies maps in order for the game to be playable on Vita.
 
 Given the nature of the mod, if you encounter any issue regarding framerate, please open an Issue on this repository.
@@ -36,7 +38,8 @@ Given the nature of the mod, if you encounter any issue regarding framerate, ple
 - Obtain your copy of *Death Road to Canada* legally for Android in form of an `.apk` file. [You can get all the required files directly from your phone](https://stackoverflow.com/questions/11012976/how-do-i-get-the-apk-of-an-installed-app-without-root-access) or by using an apk extractor you can find in the play store. The apk can be extracted with whatever Zip extractor you prefer (eg: WinZip, WinRar, etc...) since apk is basically a zip file. You can rename `.apk` to `.zip` to open them with your default zip extractor.
 - Open the apk with your zip explorer and extract the file `libmain.so` from the `lib/armeabi-v7a` folder to `ux0:data/canada`.
 - Extract the `assets` folder inside `ux0:data/canada`.
-- Follow this guide to install the mod that makes the game run properly on Vita: https://gist.github.com/CatoTheYounger97/0302790cb0a1aa658094cc3e36dc2f14
+- Download `datafiles.zip` from the Release page of this repository and extract it in `ux0:data`.
+- Run `ux0:data/canada/assets/apply.bat`.
 
 ## Build Instructions (For Developers)
 
