@@ -1108,6 +1108,8 @@ SDL_GLContext SDL_GL_CreateContext_fake(SDL_Window * window) {
 	return SDL_GL_CreateContext(window);
 }
 
+extern void SDL_ResetKeyboard(void);
+
 static so_default_dynlib default_dynlib[] = {
 	{ "opendir", (uintptr_t)&opendir_fake },
 	{ "readdir", (uintptr_t)&readdir_fake },
@@ -1232,6 +1234,7 @@ static so_default_dynlib default_dynlib[] = {
 	{ "inflateInit_", (uintptr_t)&inflateInit_ },
 	{ "inflateInit2_", (uintptr_t)&inflateInit2_ },
 	{ "inflateReset", (uintptr_t)&inflateReset },
+	{ "isascii", (uintptr_t)&isascii },
 	{ "isalnum", (uintptr_t)&isalnum },
 	{ "isalpha", (uintptr_t)&isalpha },
 	{ "iscntrl", (uintptr_t)&iscntrl },
@@ -1553,6 +1556,7 @@ static so_default_dynlib default_dynlib[] = {
 	{ "SDL_GL_GetCurrentWindow", (uintptr_t)&SDL_GL_GetCurrentWindow },
 	{ "SDL_GetWindowData", (uintptr_t)&SDL_GetWindowData },
 	{ "SDL_GetWindowTitle", (uintptr_t)&SDL_GetWindowTitle },
+	{ "SDL_ResetKeyboard", (uintptr_t)&SDL_ResetKeyboard },
 	{ "SDL_SetWindowTitle", (uintptr_t)&SDL_SetWindowTitle },
 	{ "SDL_GetWindowPosition", (uintptr_t)&SDL_GetWindowPosition },
 	{ "SDL_GL_SetSwapInterval", (uintptr_t)&ret0 },

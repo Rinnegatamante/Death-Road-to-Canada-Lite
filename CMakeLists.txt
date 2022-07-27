@@ -62,6 +62,7 @@ target_link_libraries(Canada
   SceDisplay_stub
   SceFios2_stub
   SceGxm_stub
+  SceIme_stub
   SceLibcBridge_stub
   SceShaccCg_stub
   SceSysmodule_stub
