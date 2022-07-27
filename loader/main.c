@@ -760,6 +760,8 @@ void patch_game(void) {
 	hook_addr(so_symbol(&canada_mod, "error_setup_signals"), &ret0);
 	hook_addr(so_symbol(&canada_mod, "backupGameDataToCloudJNI"), &ret0);
 	hook_addr(so_symbol(&canada_mod, "handleUnlockAchievementJNI"), &ret0);
+	hook_addr(so_symbol(&canada_mod, "handleViewAchievementsJNI"), &ret0);
+	hook_addr(so_symbol(&canada_mod, "openURLJNI"), &ret0);
 	
 	/*SceCtrlData pad;
 	do {
