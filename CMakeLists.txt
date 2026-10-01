@@ -10,6 +10,11 @@ endif()
 
 project(Canada C CXX)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2_mixer REQUIRED IMPORTED_TARGET SDL2_mixer)
+pkg_check_modules(SDL2_image REQUIRED IMPORTED_TARGET SDL2_image)
+pkg_check_modules(sndfile REQUIRED IMPORTED_TARGET sndfile)
+pkg_check_modules(vorbisfile REQUIRED IMPORTED_TARGET vorbisfile)
 set(VITA_APP_NAME "Death Road to Canada Lite")
 set(VITA_TITLEID  "DRTCANADA")
 set(VITA_MKSFOEX_FLAGS "-d ATTRIBUTE2=12")
@@ -25,8 +30,14 @@ add_executable(Canada
   loader/ctype_patch.c
 )
 
+set_target_properties(Canada PROPERTIES LINKER_LANGUAGE CXX)
+
 target_link_libraries(Canada
   -Wl,--whole-archive pthread -Wl,--no-whole-archive
+  PkgConfig::SDL2_mixer
+  PkgConfig::SDL2_image
+  PkgConfig::sndfile
+  PkgConfig::vorbisfile
   SDL2_mixer
   SDL2_image
   SDL2
@@ -36,8 +47,7 @@ target_link_libraries(Canada
   mikmod
   z
   m
-  stdc++
-  opensles
+  OpenSLES
   sndfile
   vorbis
   vorbisenc
@@ -63,7 +73,6 @@ target_link_libraries(Canada
   SceFios2_stub
   SceGxm_stub
   SceIme_stub
-  SceLibcBridge_stub
   SceShaccCg_stub
   SceSysmodule_stub
   ScePower_stub
@@ -71,7 +80,7 @@ target_link_libraries(Canada
   SceMotion_stub
   SceHid_stub
   SceVshBridge_stub
-  SceKernelDmacmgr_stub
+  SceKernelDmacMgr_stub
 )
 
 vita_create_self(eboot.bin Canada UNSAFE)
@@ -84,3 +93,5 @@ vita_create_vpk(Canada.vpk ${VITA_TITLEID} eboot.bin
        ${CMAKE_SOURCE_DIR}/sce_sys/livearea/contents/die.png sce_sys/livearea/contents/die.png
        ${CMAKE_SOURCE_DIR}/sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
 )
+
+set_property(SOURCE loader/so_util.c APPEND PROPERTY COMPILE_OPTIONS -Wno-error=return-mismatch -Wno-error=incompatible-pointer-types)

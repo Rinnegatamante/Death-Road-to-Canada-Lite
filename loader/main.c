@@ -753,15 +753,15 @@ void game_update_things() {
 }*/
 
 void patch_game(void) {
-	hook_addr(so_symbol(&canada_mod, "doesSharedPreferenceExistJNI"), &doesSharedPreferenceExistJNI);
-	hook_addr(so_symbol(&canada_mod, "setSharedPreferenceBoolJNI"), &setSharedPreferenceBoolJNI);
-	hook_addr(so_symbol(&canada_mod, "isAndroidTVJNI"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "showNoodleNewsCreativeJNI"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "error_setup_signals"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "backupGameDataToCloudJNI"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "handleUnlockAchievementJNI"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "handleViewAchievementsJNI"), &ret0);
-	hook_addr(so_symbol(&canada_mod, "openURLJNI"), &ret0);
+	hook_addr(so_symbol(&canada_mod, "doesSharedPreferenceExistJNI"), (uintptr_t)&doesSharedPreferenceExistJNI);
+	hook_addr(so_symbol(&canada_mod, "setSharedPreferenceBoolJNI"), (uintptr_t)&setSharedPreferenceBoolJNI);
+	hook_addr(so_symbol(&canada_mod, "isAndroidTVJNI"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "showNoodleNewsCreativeJNI"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "error_setup_signals"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "backupGameDataToCloudJNI"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "handleUnlockAchievementJNI"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "handleViewAchievementsJNI"), (uintptr_t)&ret0);
+	hook_addr(so_symbol(&canada_mod, "openURLJNI"), (uintptr_t)&ret0);
 	
 	/*SceCtrlData pad;
 	do {
